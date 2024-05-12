@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerSO;
 
 public class Player : MonoBehaviour
 {
@@ -11,10 +12,9 @@ public class Player : MonoBehaviour
      WeaponBase Primary;
      WeaponBase Secondary;
     WeaponBase curWeapon;
-
     WeaponBase[] AllWeapons;
-
     private bool weaponShootToogle;
+
 
     private Camera cam;
     private Vector3 mousePos;
@@ -25,12 +25,31 @@ public class Player : MonoBehaviour
     private Vector2 smoothedMoveVelo;
     private Vector2 moveDir;
 
+    //health 
+    private float curHealth;
+    private PArmor curArmor;
+    private float curArmorValue;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        curHealth = playerStats.pHealth;
+        curArmor = playerStats.pArmor;
+        switch (curArmor)
+        {
+            case PArmor.None: curArmorValue = 0; break; 
+            
+            case PArmor.Light: curArmorValue = 0.25f; break;
+
+            case PArmor.Medium: curArmorValue = 0.5f; break;
+
+            case PArmor.Heavy: curArmorValue = 0.75f; break;
+
+
+        }
         AllWeapons = gameObject.GetComponentsInChildren<WeaponBase>();
         Primary = AllWeapons[0];
-        
         curWeapon = Primary;
         cam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
@@ -69,5 +88,15 @@ public class Player : MonoBehaviour
         weaponShootToogle = !weaponShootToogle;
         if (weaponShootToogle) curWeapon.startShooting();
         else curWeapon.stopShooting();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision == null) return;
+
+        if (collision.CompareTag("EnemyBullet"))
+        {
+            curHealth -= collision.GetComponentInParent<WeaponBase>().curDamage - (collision.GetComponentInParent<WeaponBase>().curDamage * curArmorValue); 
+        }
     }
 }

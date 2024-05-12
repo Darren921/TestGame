@@ -22,6 +22,7 @@ public abstract class WeaponBase : MonoBehaviour
     private int ammoLeft;
     private int maxAmmo;
     private bool hasAmmo;
+    internal float curDamage;
 
 
     private void Awake()
@@ -29,6 +30,7 @@ public abstract class WeaponBase : MonoBehaviour
         ReloadTime = new WaitForSeconds(weaponStats.reloadTime);
         ammoLeft = weaponStats.magSize;
         maxAmmo = weaponStats.maxAmmo;
+        curDamage = weaponStats.damage;
         hasAmmo = true;
         UpdateAmmo();
         jamText.text = "";
