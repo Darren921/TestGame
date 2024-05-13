@@ -28,7 +28,9 @@ public class Projectile : MonoBehaviour
     public void Init(float chargePercent)
     {
         rb.AddForce(shootForce * chargePercent * FireDirection, ForceMode2D.Impulse);
-    } 
+    }
+
+    
 }
 
 

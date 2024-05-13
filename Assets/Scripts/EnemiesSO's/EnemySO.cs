@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Enemy Stats", menuName = "Scriptable Objects/EnemyStats", order = 3)]
+
 public class EnemySO : ScriptableObject
 {
     enum EArmor

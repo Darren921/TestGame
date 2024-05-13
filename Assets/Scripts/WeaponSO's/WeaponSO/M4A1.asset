@@ -16,7 +16,8 @@ MonoBehaviour:
   <chargeUpTime>k__BackingField: 0
   minChargePercent: 0
   <maxAmmo>k__BackingField: 270
-  <jamRate>k__BackingField: 0.1
+  <jamRate>k__BackingField: 0.0001
   <magSize>k__BackingField: 30
   <isFullAuto>k__BackingField: 1
   <reloadTime>k__BackingField: 1.5
+  <damage>k__BackingField: 10
