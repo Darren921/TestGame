@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <pHealth>k__BackingField: 100
   <pMorale>k__BackingField: 100
-  <pShootingSkill>k__BackingField: 5
+  <pShootingSkill>k__BackingField: 7
+  <pArmor>k__BackingField: 0
+  <pArmorValue>k__BackingField: 0

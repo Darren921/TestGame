@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class WeaponBase : MonoBehaviour
 {
     [SerializeField] private WeaponSO weaponStats;
+    [SerializeField] private PlayerSO playerStats;
     [SerializeField] private TextMeshProUGUI ammoText;
     [SerializeField] private TextMeshProUGUI jamText;
 
@@ -23,7 +24,7 @@ public abstract class WeaponBase : MonoBehaviour
     private int maxAmmo;
     private bool hasAmmo;
     internal float curDamage;
-
+    internal float curSpread;
 
     private void Awake()
     {

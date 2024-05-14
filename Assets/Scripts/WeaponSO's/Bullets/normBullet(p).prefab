@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3581315750972923743}
   - component: {fileID: 7038955213291159752}
   - component: {fileID: 3143834178532304763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,9 +103,9 @@ GameObject:
   - component: {fileID: 2926687645675083879}
   - component: {fileID: 7259548223762150721}
   - component: {fileID: 9022156396029455240}
-  m_Layer: 0
-  m_Name: normBullet
-  m_TagString: Untagged
+  m_Layer: 3
+  m_Name: normBullet(p)
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,8 +119,8 @@ Transform:
   m_GameObject: {fileID: 3781631194406995703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.88114, y: -0.31491, z: 0}
-  m_LocalScale: {x: 0.13851792, y: 0.01517089, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3581315750972923743}

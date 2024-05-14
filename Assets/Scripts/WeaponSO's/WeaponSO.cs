@@ -19,7 +19,10 @@ public class WeaponSO : ScriptableObject
     [field: SerializeField] public bool isFullAuto { get; private set; }
     [field: SerializeField] public float reloadTime { get; private set; }
 
+    [field: SerializeField] public float attackRange { get; private set; }
+
     [field: SerializeField] public float damage { get; private set; }
+
 
     private void OnEnable()
     {
