@@ -20,5 +20,5 @@ MonoBehaviour:
   <magSize>k__BackingField: 30
   <isFullAuto>k__BackingField: 1
   <reloadTime>k__BackingField: 1.5
-  <attackRange>k__BackingField: 5
+  <attackRange>k__BackingField: 4
   <damage>k__BackingField: 10

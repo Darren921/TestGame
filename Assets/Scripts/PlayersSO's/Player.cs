@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Vector2 moveDir;
 
     //health 
-    private float curHealth;
+    public float curHealth;
     private PArmor curArmor;
     private float curArmorValue;
 
@@ -50,16 +50,15 @@ public class Player : MonoBehaviour
         }
         AllWeapons = gameObject.GetComponentsInChildren<WeaponBase>();
         Primary = AllWeapons[0];
+       // Secondary = AllWeapons[1];
         curWeapon = Primary;
         cam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
         InputManager.Init(this);
         InputManager.EnableInGame();
     }
-    private void OnDisable()
-    {
-        InputManager.DisableInGame();
-    }
+    
+    
     private void FixedUpdate()
     {
         smoothedMoveDir = Vector2.SmoothDamp(smoothedMoveDir, moveDir, ref smoothedMoveVelo, 0.1f);
@@ -68,6 +67,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(curHealth < 0)
+        {
+            this.gameObject.SetActive(false);
+        }
         mousePos = cam.ScreenToWorldPoint(InputManager.GetMousePos());
         Vector3 rotation = mousePos - transform.position;
 
@@ -81,22 +84,28 @@ public class Player : MonoBehaviour
     }
     public void Reload()
     {
-        curWeapon.StartCoroutine(curWeapon.TryReload());
+        curWeapon.StartCoroutine(curWeapon.GetTryReload());
     }
     public void Shoot()
     {
+        
         weaponShootToogle = !weaponShootToogle;
         if (weaponShootToogle) curWeapon.startShooting();
         else curWeapon.stopShooting();
+    }
+
+    public void switchWeapon()
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision == null) return;
 
-        if (collision.CompareTag("EnemyBullet"))
-        {
-            curHealth -= collision.GetComponentInParent<WeaponBase>().curDamage - (collision.GetComponentInParent<WeaponBase>().curDamage * curArmorValue); 
-        }
+        
     }
+
+    
+
 }

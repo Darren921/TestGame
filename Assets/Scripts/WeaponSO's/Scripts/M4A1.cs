@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class M4A1 : WeaponBase
+public class M4A1 : WeaponBase 
 {
     [SerializeField] Projectile normalBullet;
     [SerializeField] Transform firingPostition;
@@ -12,4 +12,9 @@ public class M4A1 : WeaponBase
         rb.Init(percent);
         Destroy(rb.gameObject,100);
     }
+   
 }
+
+
+
+

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <eHealth>k__BackingField: 100
   <eMorale>k__BackingField: 100
-  <sightRange>k__BackingField: 3
+  <sightRange>k__BackingField: 6
   <eShootingSkill>k__BackingField: 5
   <eArmorValue>k__BackingField: 0

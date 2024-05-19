@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3581315750972923743}
   - component: {fileID: 7038955213291159752}
   - component: {fileID: 3143834178532304763}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,8 +102,8 @@ GameObject:
   - component: {fileID: 8253751484446591590}
   - component: {fileID: 2926687645675083879}
   - component: {fileID: 7259548223762150721}
-  - component: {fileID: 9022156396029455240}
-  m_Layer: 3
+  - component: {fileID: 6744289473944572666}
+  m_Layer: 9
   m_Name: normBullet(e)
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -250,7 +250,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9022156396029455240
+--- !u!114 &6744289473944572666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,8 +259,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3781631194406995703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e44e537b6f1cbd4f91e9a7a3e3809f1, type: 3}
+  m_Script: {fileID: 11500000, guid: f9980e740f1f13d41a8c9dcdd09c6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootForce: 5
-  rb: {fileID: 2926687645675083879}

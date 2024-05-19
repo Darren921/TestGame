@@ -8,18 +8,19 @@ TagManager:
   - EnemyBullet
   - PlayerBullet
   - Weapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Bullets
+  - PBullets
   - Water
   - UI
   - Weapons
   - Player
   - Walls
-  - 
-  - 
+  - EBullets
+  - Enemy
   - 
   - 
   - 
