@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private bool weaponShootToogle;
 
 
+
     private Camera cam;
     private Vector3 mousePos;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     private Vector2 smoothedMoveVelo;
     private Vector2 moveDir;
 
+    private float weaponNumber;
     //health 
     public float curHealth;
     private PArmor curArmor;
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
         }
         AllWeapons = gameObject.GetComponentsInChildren<WeaponBase>();
         Primary = AllWeapons[0];
-       // Secondary = AllWeapons[1];
+        Secondary = AllWeapons[1];
         curWeapon = Primary;
         cam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
@@ -94,7 +96,25 @@ public class Player : MonoBehaviour
         else curWeapon.stopShooting();
     }
 
-    public void switchWeapon()
+    public void switchWeapon(float w)
+    {
+        weaponNumber = w;
+        Debug.Log(weaponNumber);
+
+        if (weaponNumber == 1)
+        {
+            curWeapon = Primary;
+            Primary.UpdateAmmo();
+        }
+        else if (weaponNumber == 2)
+        {
+            curWeapon = Secondary;
+            Secondary.UpdateAmmo();
+
+        }
+    }
+
+    public void hotSwap()
     {
 
     }

@@ -8730,7 +8730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 2afca76374603d945b69d8bf05ef6efd, type: 2}
-  weaponStats: {fileID: 11400000, guid: ae31fbcec1f2e0b438fdfe1dea4b5adc, type: 2}
+  weaponStats: {fileID: 11400000, guid: 0f4f1946caba8c34d84df3b78a618ac1, type: 2}
   player: {fileID: 1470767229}
   speed: 100
   whatIsPlayer:
@@ -12193,6 +12193,7 @@ GameObject:
   - component: {fileID: 2014549034}
   - component: {fileID: 2014549035}
   - component: {fileID: 2014549036}
+  - component: {fileID: 2014549037}
   m_Layer: 6
   m_Name: Weapon
   m_TagString: Weapon
@@ -12320,6 +12321,23 @@ CircleCollider2D:
   m_Offset: {x: 0.00000023841858, y: -0.0016480684}
   serializedVersion: 2
   m_Radius: 0.086815596
+--- !u!114 &2014549037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014549032}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaad07a6f2f984c479686059cac95f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStats: {fileID: 11400000, guid: 0f4f1946caba8c34d84df3b78a618ac1, type: 2}
+  ammoText: {fileID: 579082164}
+  jamText: {fileID: 1479926937}
+  normalBullet: {fileID: 9022156396029455240, guid: b1928317f4baeda42bbc0411072d8a3a, type: 3}
+  firingPostition: {fileID: 509409143}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

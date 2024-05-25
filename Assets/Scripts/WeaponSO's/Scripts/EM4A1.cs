@@ -10,6 +10,6 @@ public class EM4A1 : WeaponBase.EnemyWeapons
     {
         EProjectile rb = Instantiate(normalBullet, firingPostition.position,Quaternion.identity);
         rb.Init(percent);
-        Destroy(rb.gameObject, 100);
+        Destroy(rb.gameObject, 4);
     }
 }

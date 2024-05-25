@@ -70,6 +70,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HotSwap"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6790684-2615-4389-bdf9-76745daa2499"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -165,11 +174,44 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cbe8674b-ecb1-46bc-b34e-54c3500a2d25"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale"",
+                    ""groups"": """",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbebccdb-fe8a-45d5-a18d-42da49ca613f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2)"",
+                    ""groups"": """",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85534bed-8308-4a8b-a748-6b51870b5eb6"",
                     ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=0)"",
+                    ""groups"": """",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa7e1694-785a-4795-bab4-1911119c13d7"",
+                    ""path"": ""<Keyboard>/quote"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Swap"",
+                    ""action"": ""HotSwap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -185,6 +227,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_InGame_Shoot = m_InGame.FindAction("Shoot", throwIfNotFound: true);
         m_InGame_Reload = m_InGame.FindAction("Reload", throwIfNotFound: true);
         m_InGame_Swap = m_InGame.FindAction("Swap", throwIfNotFound: true);
+        m_InGame_HotSwap = m_InGame.FindAction("HotSwap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +294,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Shoot;
     private readonly InputAction m_InGame_Reload;
     private readonly InputAction m_InGame_Swap;
+    private readonly InputAction m_InGame_HotSwap;
     public struct InGameActions
     {
         private @Controls m_Wrapper;
@@ -260,6 +304,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_InGame_Shoot;
         public InputAction @Reload => m_Wrapper.m_InGame_Reload;
         public InputAction @Swap => m_Wrapper.m_InGame_Swap;
+        public InputAction @HotSwap => m_Wrapper.m_InGame_HotSwap;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +329,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Swap.started += instance.OnSwap;
             @Swap.performed += instance.OnSwap;
             @Swap.canceled += instance.OnSwap;
+            @HotSwap.started += instance.OnHotSwap;
+            @HotSwap.performed += instance.OnHotSwap;
+            @HotSwap.canceled += instance.OnHotSwap;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -303,6 +351,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Swap.started -= instance.OnSwap;
             @Swap.performed -= instance.OnSwap;
             @Swap.canceled -= instance.OnSwap;
+            @HotSwap.started -= instance.OnHotSwap;
+            @HotSwap.performed -= instance.OnHotSwap;
+            @HotSwap.canceled -= instance.OnHotSwap;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -327,5 +378,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnSwap(InputAction.CallbackContext context);
+        void OnHotSwap(InputAction.CallbackContext context);
     }
 }

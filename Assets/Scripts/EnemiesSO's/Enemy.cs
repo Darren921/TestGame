@@ -105,11 +105,12 @@ public class Enemy : MonoBehaviour
         if (!playerInRange && !playerInSightRange && !onCoolDown) StartCoroutine(Patrolling());
         if (playerInSightRange && !playerInRange) Chasing();
         if (playerInRange && playerInSightRange) StartCoroutine(Attacking());
-        if (curWeapon.ammoLeft == 0)
+        if (curWeapon.ammoLeft == 0 || curWeapon.isJammed)
         {
             StartCoroutine(curWeapon.GetTryReload());
             isAttacking = false;
         }
+       
     }
 
     private IEnumerator Attacking()

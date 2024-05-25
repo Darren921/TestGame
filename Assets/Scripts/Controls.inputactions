@@ -48,6 +48,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "HotSwap",
+                    "type": "Button",
+                    "id": "b6790684-2615-4389-bdf9-76745daa2499",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -143,11 +152,44 @@
                 {
                     "name": "",
                     "id": "cbe8674b-ecb1-46bc-b34e-54c3500a2d25",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "Scale",
+                    "groups": "",
+                    "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bbebccdb-fe8a-45d5-a18d-42da49ca613f",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "Scale(factor=2)",
+                    "groups": "",
+                    "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85534bed-8308-4a8b-a748-6b51870b5eb6",
                     "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "Scale(factor=0)",
+                    "groups": "",
+                    "action": "Swap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa7e1694-785a-4795-bab4-1911119c13d7",
+                    "path": "<Keyboard>/quote",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Swap",
+                    "action": "HotSwap",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

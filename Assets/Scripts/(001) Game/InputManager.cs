@@ -32,6 +32,11 @@ public class InputManager
         {
             mousePos = _.ReadValue<Vector2>();
         };
+        controls.InGame.Swap.performed += _ =>
+        {
+            player.switchWeapon(_.ReadValue<float>());
+        };
+       
 
     }
 

@@ -185,7 +185,7 @@ public abstract class WeaponBase : MonoBehaviour
     }
 
     
-    protected virtual void UpdateAmmo()
+    public virtual void UpdateAmmo()
     {
         ammoText.text = ammoLeft.ToString() + " / " + maxAmmo.ToString();
     }
