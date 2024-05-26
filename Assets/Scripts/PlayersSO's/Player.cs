@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static PlayerSO;
 
@@ -100,24 +101,41 @@ public class Player : MonoBehaviour
     {
         weaponNumber = w;
         Debug.Log(weaponNumber);
+        switch (weaponNumber) 
+        { 
+            case 0:
+                if (curWeapon == Primary)
+                {
+                    curWeapon = Secondary;
+                    Secondary.UpdateAmmo();
+                    return;
+                }
+                else if (curWeapon == Secondary)
+                {
+                    curWeapon = Primary;
+                    Primary.UpdateAmmo();
+                    return;
+                }
+                break;
 
-        if (weaponNumber == 1)
-        {
-            curWeapon = Primary;
-            Primary.UpdateAmmo();
+            case 1:
+                curWeapon = Primary;
+                Primary.UpdateAmmo();
+                break;
+
+            case 2:
+                curWeapon = Secondary;
+                Secondary.UpdateAmmo();
+                break;
         }
-        else if (weaponNumber == 2)
-        {
-            curWeapon = Secondary;
-            Secondary.UpdateAmmo();
 
+    
         }
-    }
+     
+      
+    
 
-    public void hotSwap()
-    {
-
-    }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
