@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour 
 {
@@ -24,14 +25,16 @@ public class Enemy : MonoBehaviour
     bool reachedWaypoint;
     bool playerInRange;
     bool playerInSightRange;
+    private RaycastHit2D playerInLOS;
     Rigidbody2D rb;
     Seeker seeker;
-    [SerializeField]LayerMask whatIsPlayer;
+    [SerializeField] LayerMask whatIsPlayer, whatIsWall;
     float patrolRange;
 
     bool onCoolDown;
     private bool isAttacking;
     private bool isChasing;
+    internal float curHealth;
 
 
     // Start is called before the first frame update
@@ -41,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
         sightRange = enemyStats.sightRange;
         attackRange = weaponStats.attackRange;
-
+        curHealth = enemyStats.eHealth;
         patrolRange = 3;
          curWeapon = gameObject.GetComponentInChildren<WeaponBase.EnemyWeapons>();
         player = GameObject.FindObjectOfType<Player>().transform;
@@ -100,17 +103,28 @@ public class Enemy : MonoBehaviour
     {
         playerInRange = Physics2D.OverlapCircle(transform.position, attackRange, whatIsPlayer);
         playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, whatIsPlayer);
-
+        playerInLOS = Physics2D.Linecast(transform.position, player.position, whatIsWall);
+       
+        Debug.DrawLine(transform.position, player.position,Color.green);
 
         if (!playerInRange && !playerInSightRange && !onCoolDown) StartCoroutine(Patrolling());
-        if (playerInSightRange && !playerInRange) Chasing();
-        if (playerInRange && playerInSightRange) StartCoroutine(Attacking());
+
+        if (!playerInLOS.transform.CompareTag("Wall"))
+        {
+            if (playerInSightRange && !playerInRange) Chasing();
+            if (playerInRange && playerInSightRange) StartCoroutine(Attacking());
+        }
+       
         if (curWeapon.ammoLeft == 0 || curWeapon.isJammed)
         {
             StartCoroutine(curWeapon.GetTryReload());
             isAttacking = false;
         }
-       
+
+        if (curHealth <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator Attacking()

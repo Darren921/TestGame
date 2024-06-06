@@ -30,7 +30,8 @@ public class EProjectile : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
 
-            collision.GetComponent<Player>().curHealth -= 0;
+            collision.GetComponent<Player>().curHealth -= 5;
+            Destroy(rb.gameObject);
         }
     }
 }

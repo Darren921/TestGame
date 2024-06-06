@@ -29,7 +29,15 @@ public class Projectile : MonoBehaviour
         rb.AddForce(shootForce * chargePercent * FireDirection, ForceMode2D.Impulse);
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+
+            collision.GetComponent<Enemy>().curHealth -= 5;
+            Destroy(rb.gameObject);
+        }
+    }
 }
 
 

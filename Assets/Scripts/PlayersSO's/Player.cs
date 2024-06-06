@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(curHealth < 0)
+        if(curHealth <= 0)
         {
             this.gameObject.SetActive(false);
         }
